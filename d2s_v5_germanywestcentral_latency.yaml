@@ -1,0 +1,29 @@
+
+# benchmark netperf
+
+netperf:
+  vpc_peering: True
+  flag_matrix: fmatrix
+  flag_matrix_defs:
+    fmatrix:
+      zone: [[germanywestcentral-1, germanywestcentral-2], [germanywestcentral-1, germanywestcentral-3], [germanywestcentral-2, germanywestcentral-3]]
+      machine_type: [Standard_D2s_v5]
+  flags:
+    cloud: Azure
+    azure_accelerated_networking: True
+    netperf_benchmarks: TCP_RR
+    netperf_test_length: 60 #30
+    netperf_num_streams: 1,32
+    network_enable_BBR: True
+    bigquery_table: []
+    bq_project: []
+    ip_addresses: BOTH
+    os_type: ubuntu2004
+    mtu: 1500
+    record_lscpu: False
+    record_proccpu: False
+    record_cpu_vuln: False
+    record_gcc: False
+    record_glibc: False
+    network_enable_BBR: True
+    temp_dir: []
