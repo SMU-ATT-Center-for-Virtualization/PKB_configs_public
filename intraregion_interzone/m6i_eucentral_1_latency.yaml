@@ -1,0 +1,29 @@
+# benchmark netperf
+
+netperf:
+  vpc_peering: True
+  flag_matrix: fmatrix
+  flag_matrix_filters:
+    fmatrix: "zones < extra_zones"
+  flag_matrix_defs:
+    fmatrix:
+      zones: [eu-central-1a, eu-central-1b, eu-central-1c]
+      extra_zones: [eu-central-1a, eu-central-1b, eu-central-1c]
+      machine_type: [m6i.large]
+  flags:
+    cloud: AWS
+    netperf_benchmarks: TCP_RR
+    netperf_test_length: 60 #30
+    netperf_num_streams: 1,32
+    bigquery_table: []
+    bq_project: []
+    ip_addresses: BOTH
+    os_type: ubuntu2004
+    mtu: 1500
+    record_lscpu: False
+    record_proccpu: False
+    record_cpu_vuln: False
+    record_gcc: False
+    record_glibc: False
+    network_enable_BBR: True
+    temp_dir: []
