@@ -1,0 +1,28 @@
+#benchmark mpi
+
+mpi:
+  flags:
+    cloud: GCP
+    gce_network_tier: premium
+    zone: us-central1-b
+    machine_type: c2-standard-60
+    ip_addresses: INTERNAL
+    gce_egress_bandwidth_tier: TIER_1
+    gce_nic_type: GVNIC
+    bigquery_table: []
+    bq_project: []
+    mtu: 1500
+    record_lscpu: False
+    record_proccpu: False
+    record_cpu_vuln: False
+    record_gcc: False
+    record_glibc: False
+    os_type: centos7
+    placement_group_style: COLLOCATED
+    image_family: hpc-rocky-linux-8
+    image_project: cloud-hpc-image-public
+    mpi_benchmarks: PingPing,PingPong,PingPongMT,PingPingMT,UnibandMT
+    mpi_msglog_min: 0
+    mpi_msglog_max: 20
+    mpi_env: PSM3_ALLOW_ROUTERS=1,FI_PROVIDER=psm3,PSM3_HAL=sockets
+    gce_placement_group_max_distance: 1
